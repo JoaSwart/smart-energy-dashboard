@@ -5,7 +5,7 @@ body {
 }
 
 .navbar {
-  background: #01610e;
+  background: #077f17;
   color: #fff;
   height: 13vh;
   padding: 0 2rem;
@@ -68,7 +68,7 @@ body {
   left: 0;
   width: 250px;
   height: 90vh;
-  background: linear-gradient(180deg, #96b0de, #476aac);
+  background: linear-gradient(180deg, #96de9d, #47ac55);
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -100,7 +100,7 @@ body {
   color: #2ce059;
 }
 
-.sidebar nav {
+.sidebar nav { 
   width: 100%;
   display: flex;
   flex-direction: column;
