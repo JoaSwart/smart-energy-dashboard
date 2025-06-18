@@ -1,26 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Energy Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart energy dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <header>Instellingen</header>
-    <div class="page-content">
-        <nav class="sidebar">
-            <div class="sidebar-title">Dashboard</div>
-            <ul>
-                <li><a href="zonnepanelen.html">Zonnepanelen</a></li>
-                <li><a href="verbruik.html">Verbruik</a></li>
-                <li><a href="apparaatbeheer.html">Apparaatbeheer</a></li>
-                <li><a href="instellingen.html">Instellingen</a></li>
-            </ul>
-        </nav>
-        <main>
-
-        </main>
+  <div class="navbar">
+    <div class="navbar-left">
+      <span class="brand">Smart Energy Insights</span>
     </div>
+    <span class="page-active">Instellingen</span>
+    <div class="navbar-right">
+      <span class="material-icons">notifications</span>
+      <div class="time">18:54</div>
+    </div>
+  </div>
+  <div class="sidebar">
+    <div class="profile">
+      <span class="material-icons">account_circle</span>
+    </div>
+    <nav>
+      <a href="index.html"><span class="material-icons">dashboard</span>Dashboard</a>
+      <a href="zonnepanelen.html"><span class="material-icons">wb_sunny</span>Zonnepanelen</a>
+      <a href="verbruik.html"><span class="material-icons">attach_money</span>Verbruik</a>
+      <a href="apparaatbeheer.html"><span class="material-icons">devices</span>Apparaatbeheer</a>
+      <a href="instellingen.html" class="active"><span class="material-icons">settings</span>Instellingen</a>
+    </nav>
+  </aside>
 </body>
 </html>
