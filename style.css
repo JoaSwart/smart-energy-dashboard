@@ -5,7 +5,7 @@ body {
 }
 
 .navbar {
-  background: #1a1842;
+  background: #01610e;
   color: #fff;
   height: 13vh;
   padding: 0 2rem;
@@ -97,7 +97,7 @@ body {
 
 .sidebar .profile .material-icons {
   font-size: 95px;
-  color: #7b9bd3;
+  color: #2ce059;
 }
 
 .sidebar nav {
