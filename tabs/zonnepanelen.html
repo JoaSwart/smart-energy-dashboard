@@ -4,8 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Smart energy dashboard</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+  <script src="../script.js"></script>
 </head>
 <body>
   <!-- header bovenin-->
@@ -34,5 +37,13 @@
       <a href="/tabs/apparaatbeheer.html"><span class="material-icons">devices</span>Apparaatbeheer</a>
     </nav>
   </aside>
+
+       <!--  Grafiek Container -->
+  <main class="content">
+    <div class="chart-container">
+      <canvas id="solarChart"></canvas>
+    </div>
+  </main>
+    
 </body>
 </html>
