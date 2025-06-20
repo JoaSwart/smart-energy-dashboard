@@ -3,7 +3,7 @@ console.log("script.js werkt");
 fetch('../data/huisverbruik.csv')
   .then(response => response.text())
   .then(csvText => {
-    // Parse CSV
+    
     const lines = csvText.trim().split('\n');
     lines.shift(); // remove header
 
@@ -11,7 +11,7 @@ fetch('../data/huisverbruik.csv')
     const values = [];
 
     lines.forEach(line => {
-      // Split by tab or comma
+      // . of , ertussen
       const parts = line.split(/\t|,/);
       if (parts.length >= 2) {
         labels.push(parts[0].trim());
@@ -19,7 +19,7 @@ fetch('../data/huisverbruik.csv')
       }
     });
 
-    // Draw chart
+    // teken de grafiek
     const ctx = document.getElementById('huisVerbruik').getContext('2d');
     new Chart(ctx, {
       type: 'line',
