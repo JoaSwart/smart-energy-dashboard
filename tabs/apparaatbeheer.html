@@ -33,6 +33,83 @@
       <a href="/tabs/zonnepanelen.html"><span class="material-icons">wb_sunny</span>Zonnepanelen</a>
       <a href="/tabs/apparaatbeheer.html" class="active"><span class="material-icons">devices</span>Apparaatbeheer</a>
     </nav>
-  </aside>
+  </div>
+   <!-- main pagina van apparaatbeheer -->
+  <div class="apparaat-main">
+    <div class="apparaat-header">
+      <h2>Apparaten</h2>
+      <button class="apparaat-nieuw-btn"><span class="material-icons">add</span>Nieuw apparaat</button>
+    </div>
+    <div class="apparaat-cards">
+      <!--ventilator card -->
+      <div class="apparaat-card">
+        <div class="apparaat-card-header">
+          <span class="apparaat-title">Ventilator</span>
+          <span class="material-icons apparaat-menu-btn" data-apparaat="ventilator">more_vert</span>
+          <div class="apparaat-menu" data-apparaat="ventilator">
+            <button class="apparaat-menu-edit">Bewerken</button>
+            <button class="apparaat-menu-remove">Verwijderen</button>
+          </div>
+        </div>
+        <div class="apparaat-icon"><span class="material-icons">air</span></div>
+        <div class="apparaat-card-footer">
+          <div class="apparaat-status">
+            <span>Power</span>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <button class="apparaat-info-btn">Device information <span class="material-icons">arrow_forward</span></button>
+        </div>
+      </div>
+      <!--airco card -->
+      <div class="apparaat-card">
+        <div class="apparaat-card-header">
+          <span class="apparaat-title">Airco</span>
+          <span class="material-icons apparaat-menu-btn" data-apparaat="airco">more_vert</span>
+          <div class="apparaat-menu" data-apparaat="airco">
+            <button class="apparaat-menu-edit">Bewerken</button>
+            <button class="apparaat-menu-remove">Verwijderen</button>
+          </div>
+        </div>
+        <div class="apparaat-icon"><span class="material-icons">ac_unit</span></div>
+        <div class="apparaat-card-footer">
+          <div class="apparaat-temp">Graden <span>18°C</span></div>
+          <div class="apparaat-status">
+            <span>Power</span>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <button class="apparaat-info-btn">Device information <span class="material-icons">arrow_forward</span></button>
+        </div>
+      </div>
+      <!--tv card -->
+      <div class="apparaat-card">
+        <div class="apparaat-card-header">
+          <span class="apparaat-title">Tv</span>
+          <span class="material-icons apparaat-menu-btn" data-apparaat="tv">more_vert</span>
+          <div class="apparaat-menu" data-apparaat="tv">
+            <button class="apparaat-menu-edit">Bewerken</button>
+            <button class="apparaat-menu-remove">Verwijderen</button>
+          </div>
+        </div>
+        <div class="apparaat-icon"><span class="material-icons">tv</span></div>
+        <div class="apparaat-card-footer">
+          <div class="apparaat-status">
+            <span>Power</span>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <button class="apparaat-info-btn">Device information <span class="material-icons">arrow_forward</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../apparaatbeheer.js"></script>
 </body>
 </html>
