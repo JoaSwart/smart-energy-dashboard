@@ -6,9 +6,6 @@
     <title>Smart energy dashboard</title>
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
-    <script src="../script.js"></script>
   </head>
   <body>
     <!-- header bovenin-->
@@ -20,7 +17,15 @@
       <span class="page-active">Zonnepanelen</span>
       <div class="navbar-right">
         <span class="material-icons">notifications</span>
-        <div class="time">18:54</div>
+        <div class="settings-menu-container">
+        <span class="material-icons" id="settings-menu-btn">menu</span>
+        <div class="settings-menu" id="settings-menu">
+            <a href="#"><span class="material-icons">person</span>Account</a>
+            <a href="#"><span class="material-icons">email</span>Email</a>
+            <a href="#"><span class="material-icons">language</span>Language</a>
+            <a href="#"><span class="material-icons">logout</span>Log out</a>
+        </div>
+      </div>
       </div>
     </div>
     <!--div voor de sidebar aan de zijkant-->
@@ -44,7 +49,10 @@
         <canvas id="solarChart"></canvas>
       </div>
     </main>
-      
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="../zonnepanelen.js"></script>
+      <script src="../script.js"></script>
   </body>
   </html>
->
+

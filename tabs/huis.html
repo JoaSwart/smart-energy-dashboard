@@ -17,7 +17,15 @@
     <span class="page-active">Huis</span>
     <div class="navbar-right">
       <span class="material-icons">notifications</span>
-      <div class="time">18:54</div>
+     <div class="settings-menu-container">
+        <span class="material-icons" id="settings-menu-btn">menu</span>
+        <div class="settings-menu" id="settings-menu">
+            <a href="#"><span class="material-icons">person</span>Account</a>
+            <a href="#"><span class="material-icons">email</span>Email</a>
+            <a href="#"><span class="material-icons">language</span>Language</a>
+            <a href="#"><span class="material-icons">logout</span>Log out</a>
+        </div>
+      </div>
     </div>
   </div>
   <!--div voor de sidebar aan de zijkant-->
@@ -38,6 +46,7 @@
    <div class="huis-chart-container">
     <canvas id="huisVerbruik" width="600" height="300"></canvas>
   </div>
+  <script src="../script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="../huisverbruik.js"></script>
 </body>

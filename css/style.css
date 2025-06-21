@@ -463,3 +463,56 @@ input:checked + .slider:before {
 .apparaat-menu-btn:hover {
   background: #f1f5f9;
 }
+
+/* settings menu in Navbar */
+.settings-menu-container {
+  position: relative;
+}
+
+#settings-menu-btn {
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+#settings-menu-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.settings-menu {
+  display: none;
+  position: absolute;
+  top: 50px; 
+  right: 0;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  z-index: 100;
+  min-width: 200px;
+  flex-direction: column;
+  padding: 0.5rem 0;
+  color: #334155;
+  
+}
+
+.settings-menu.active {
+  display: flex;
+}
+
+.settings-menu a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1.2rem;
+  color: #334155;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+
+.settings-menu a:hover {
+  background: #f1f5f9;
+  color: #38a169;
+}
