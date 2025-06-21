@@ -44,7 +44,7 @@ function getRandomColor() {
 
 async function loadAndDrawChart() {
   try {
-    const response = await fetch('../data/zonnedata.csv');
+    const response = await fetch('../../data/zonnedata.csv');
     const csvData = await response.text();
     const chartData = parseAndProcessData(csvData);
 

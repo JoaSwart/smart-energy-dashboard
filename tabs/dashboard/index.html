@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -8,16 +9,16 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-  <!--header bovenin-->
+  <!-- header bovenin-->
   <div class="navbar">
     <div class="navbar-left">
       <span class="brand">Smart Energy Insights</span>
     </div>
     <!--titel van de huidige pagina-->
-    <span class="page-active">Huis</span>
+    <span class="page-active">Home</span>
     <div class="navbar-right">
       <span class="material-icons">notifications</span>
-     <div class="settings-menu-container">
+      <div class="settings-menu-container">
         <span class="material-icons" id="settings-menu-btn">menu</span>
         <div class="settings-menu" id="settings-menu">
             <a href="#"><span class="material-icons">person</span>Account</a>
@@ -35,20 +36,12 @@
     </div>
      <!--de navigatie van de tabs-->
     <nav>
-
-      <a href="/tabs/index.html"><span class="material-icons">dashboard</span>Dashboard</a>
-      <a href="/tabs/huis.html" class="active"><span class="material-icons">home</span>Huis</a>
-      <a href="/tabs/auto.html"><span class="material-icons">directions_car</span>Auto</a>
-      <a href="/tabs/zonnepanelen.html"><span class="material-icons">wb_sunny</span>Zonnepanelen</a>
-      <a href="/tabs/apparaatbeheer.html"><span class="material-icons">devices</span>Apparaatbeheer</a>
+      <a href="/tabs/dashboard/index.html" class="active"><span class="material-icons">dashboard</span>Dashboard</a>
+      <a href="/tabs/huis/huis.html"><span class="material-icons">home</span>Huis</a>
+      <a href="/tabs/auto/auto.html"><span class="material-icons">directions_car</span>Auto</a>
+      <a href="/tabs/zonnepanelen/zonnepanelen.html"><span class="material-icons">wb_sunny</span>Zonnepanelen</a>
+      <a href="/tabs/apparaatbeheer/apparaatbeheer.html"><span class="material-icons">devices</span>Apparaatbeheer</a>
     </nav>
-  </div>
-   <div class="huis-chart-container">
-    <canvas id="huisVerbruik" width="600" height="300"></canvas>
-  </div>
-  <script src="../script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="../huisverbruik.js"></script>
+    <script src="../dashboard/script.js"></script>
 </body>
 </html>
-

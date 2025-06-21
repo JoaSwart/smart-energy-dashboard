@@ -1,6 +1,6 @@
 console.log("script.js werkt");
 
-fetch('../data/huisverbruik.csv')
+fetch('../../data/huisverbruik.csv')
   .then(response => response.text()) //omgezet naar text
   .then(csvText => {
     

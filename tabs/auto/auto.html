@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -6,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Smart energy dashboard</title>
   <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="../css/style.css">
+
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
@@ -16,7 +15,7 @@
       <span class="brand">Smart Energy Insights</span>
     </div>
     <!--titel van de huidige pagina-->
-    <span class="page-active">Home</span>
+    <span class="page-active">Auto</span>
     <div class="navbar-right">
       <span class="material-icons">notifications</span>
       <div class="settings-menu-container">
@@ -35,14 +34,16 @@
     <div class="profile">
       <span class="material-icons">account_circle</span>
     </div>
-     <!--de navigatie van de tabs-->
+    <!--de navigatie van de tabs-->
     <nav>
-      <a href="/tabs/index.html" class="active"><span class="material-icons">dashboard</span>Dashboard</a>
-      <a href="/tabs/huis.html"><span class="material-icons">home</span>Huis</a>
-      <a href="/tabs/auto.html"><span class="material-icons">directions_car</span>Auto</a>
-      <a href="/tabs/zonnepanelen.html"><span class="material-icons">wb_sunny</span>Zonnepanelen</a>
-      <a href="/tabs/apparaatbeheer.html"><span class="material-icons">devices</span>Apparaatbeheer</a>
+       <a href="/tabs/dashboard/index.html"><span class="material-icons">dashboard</span>Dashboard</a>
+      <a href="/tabs/huis/huis.html"><span class="material-icons">home</span>Huis</a>
+      <a href="/tabs/auto/auto.html" class="active"><span class="material-icons">directions_car</span>Auto</a>
+      <a href="/tabs/zonnepanelen/zonnepanelen.html"><span class="material-icons">wb_sunny</span>Zonnepanelen</a>
+      <a href="/tabs/apparaatbeheer/apparaatbeheer.html"><span class="material-icons">devices</span>Apparaatbeheer</a>
     </nav>
-    <script src="../script.js"></script>
+  </div>
+  <script src="../dashboard/script.js"></script>
 </body>
 </html>
+
