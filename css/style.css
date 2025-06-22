@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', Arial, sans-serif;
-  background: #f8f9fa;
+  background: #f7f9fb;
 }
 
  /* navigatiebar bovenin */
@@ -353,6 +353,7 @@ html, body {
   width: 38px;
   height: 22px;
 }
+
 .switch input {display:none;}
 .slider {
   position: absolute;
@@ -362,6 +363,7 @@ html, body {
   transition: .4s;
   border-radius: 22px;
 }
+
 .slider:before {
   position: absolute;
   content: "";
@@ -374,9 +376,11 @@ html, body {
   border-radius: 50%;
   box-shadow: 0 1px 4px rgba(56, 161, 105, 0.10);
 }
+
 input:checked + .slider {
   background-color: #38a169;
 }
+
 input:checked + .slider:before {
   transform: translateX(16px);
 }
@@ -517,6 +521,33 @@ input:checked + .slider:before {
   color: #38a169;
 }
 
+/* filter buttons */
+
+.filter-btn{
+  margin-right: 8px;
+  padding: 5px;
+  background: #ffffff;
+  border: 1.5px solid #22543d;
+  border-radius: 5px;
+  margin-bottom: -20px;
+   transition: 0.5s;
+}
+
+.filter-btn:hover {
+  border-radius: 2px;
+   transform: translateY(-1.5px);
+   transition: 0.5s;
+   cursor: pointer;
+}
+
+.filter-btn:active{
+   margin-right: 8px;
+  padding: 5px;
+  background: #e5f6e98a;
+  border-radius: 3px;
+   transition: 0.1s;
+}
+
 /* subtabs */
 .huis-subtabs-container {
   margin-left: 250px;
@@ -573,7 +604,7 @@ input:checked + .slider:before {
   box-shadow: 0 6px 32px rgba(56,161,105,0.10);
   padding: 0.5rem;
   min-height: 350px;
-  max-width: 600px;
+  max-width: 1000px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -603,6 +634,115 @@ input:checked + .slider:before {
 .huis-subtab-content p {
   color: #22543d;
   font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-  margin-top: 1.5rem;
+  margin-top: 0.5rem;
 }
+
+.co2-luchtvochtigheid-flex {
+  display: flex;
+  gap: 2.2rem;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 950px;
+  padding: 0 1rem;
+}
+
+.luchtvochtigheid-donut-card {
+  min-width: 220px;
+  max-width: 300px;
+  padding: 1.2rem 0.7rem 1.5rem 0.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.luchtvochtigheid-donut-wrapper {
+  margin-bottom: 0.2rem;
+}
+
+.luchtvochtigheid-donut-value {
+  font-size: 2.1rem;
+}
+
+.luchtvochtigheid-donut-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #22543d;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.luchtvochtigheid-donut-uitleg {
+  font-size: 0.97rem;
+  color: #718096;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.filter-buttons {
+  margin-bottom: 1.2rem;
+}
+
+.luchtvochtigheid-donut-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(66,153,225,0.08);
+  padding: 1rem;
+  min-width: 240px;
+  max-width: 260px;
+}
+
+.luchtvochtigheid-donut-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #22543d;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.luchtvochtigheid-donut-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.luchtvochtigheid-donut-value {
+  position: absolute;
+  left: 0; right: 0; top: 0; bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #3169ad;
+  pointer-events: none;
+  user-select: none;
+}
+
+.luchtvochtigheid-donut-uitleg {
+  font-size: 0.95rem;
+  color: #4a5568;
+  margin-top: 0.7rem;
+  text-align: center;
+}
+
+#luchtvochtigheidDonut {
+  width: 220px !important;
+  height: 220px !important;
+  min-width: 220px;
+  min-height: 220px;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+#co2Binnen, #huisVerbruik {
+  background: #fff;
+  border-radius: 16px;
+}
+

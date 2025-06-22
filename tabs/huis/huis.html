@@ -8,11 +8,13 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
+
   <!--header bovenin-->
   <div class="navbar">
     <div class="navbar-left">
       <span class="brand">Smart Energy Insights</span>
     </div>
+
     <!--titel van de huidige pagina-->
     <span class="page-active">Huis</span>
     <div class="navbar-right">
@@ -28,11 +30,13 @@
       </div>
     </div>
   </div>
+
   <!--div voor de sidebar aan de zijkant-->
   <div class="sidebar">
     <div class="profile">
       <span class="material-icons">account_circle</span>
     </div>
+
      <!--de navigatie van de tabs-->
     <nav>
       <a href="/tabs/dashboard/index.html"><span class="material-icons">dashboard</span>Dashboard</a>
@@ -48,38 +52,57 @@
     <div class="huis-subtabs-nav">
       <button class="huis-subtab-btn active" id="subtab-huisverbruik-btn">Huisverbruik</button>
       <button class="huis-subtab-btn" id="subtab-co2-btn">CO₂-concentratie binnen</button>
-      <button class="huis-subtab-btn" id="subtab-luchtvochtigheid-btn">Luchtvochtigheid</button>
       <button class="huis-subtab-btn" id="subtab-luchtdruk-btn">Luchtdruk</button>
       <button class="huis-subtab-btn" id="subtab-waterstof-btn">Waterstofopslag woning</button>
     </div>
-    <div class="huis-subtabs-content">
-      <div class="huis-subtab-content active" id="subtab-huisverbruik">
-        <p>Kilowattuur verbruik</p>
-        <canvas id="huisVerbruik" width="600" height="300"></canvas>
+    
+      <div class="huis-subtab-content active" id="subtab-huisverbruik"> <!--huis-subtab-content active is de eerste active tab die je ziet als je de 'huis' tab opent -->
+        <p>Kilowattuur verbruik</p>                                     <!--daarna als je op een ander subtab knop klikt wordt de 'active' class daarheen verplaatst-->
+        <div class="filter-buttons" id="filter-huisverbruik">
+          <button class="filter-btn active" data-filter="3h">Laatste 3 uur</button>
+          <button class="filter-btn" data-filter="day">Dag</button>
+          <button class="filter-btn" data-filter="week">Week</button>
+        </div>
+        <canvas id="huisVerbruik" width="800" height="300"></canvas>
       </div>
+
+      <!--co2 concentratie binnen-->
       <div class="huis-subtab-content" id="subtab-co2">
-        <p>CO₂-concentratie binnen</p>
-        <canvas id="co2Binnen" width="600" height="300"></canvas>
-      </div>
-      <div class="huis-subtab-content" id="subtab-luchtvochtigheid">
-        <p>Luchtvochtigheid binnen</p>
-        <canvas id="luchtvochtigheid" width="600" height="300" style="display:none;"></canvas>
+        <p>CO₂-concentratie binnen & luchtvochtigheid</p>
+        <div class="filter-buttons" id="filter-co2">
+          <button class="filter-btn active" data-filter="3h">Laatste 3 uur</button>
+          <button class="filter-btn" data-filter="day">Dag</button>
+          <button class="filter-btn" data-filter="week">Week</button>
+        </div>
+        <div class="co2-luchtvochtigheid-flex">
+          <canvas id="co2Binnen" width="600" height="350"></canvas>
+
+          <!--luchtvochtigheid donut-->
+            <div class="luchtvochtigheid-donut-container">
+              <div class="luchtvochtigheid-donut-title">Gemiddelde luchtvochtigheid</div>
+              <div class="luchtvochtigheid-donut-wrapper">
+                <canvas id="luchtvochtigheidDonut" width="180" height="180"></canvas>
+                <div id="luchtvochtigheidDonutValue" class="luchtvochtigheid-donut-value"></div>
+              </div>
+              <div class="luchtvochtigheid-donut-uitleg">Gemiddelde over geselecteerde periode</div>
+          </div>
+        </div>
       </div>
       <div class="huis-subtab-content" id="subtab-luchtdruk">
         <p>Luchtdruk binnen</p>
-        <canvas id="luchtdruk" width="600" height="300" style="display:none;"></canvas>
+        <canvas id="luchtdruk" width="600" height="300"></canvas>
       </div>
       <div class="huis-subtab-content" id="subtab-waterstof">
         <p>Waterstofopslag woning</p>
-        <canvas id="waterstofopslag" width="600" height="300" style="display:none;"></canvas>
+        <canvas id="waterstofopslag" width="600" height="300"></canvas>
       </div>
     </div>
   </div>
-  <script src="../../dashboard/script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="./huisverbruik.js"></script>
   <script src="./co2.js"></script>
   <script src="./huis-tabs.js"></script>
+   <script src="../dashboard/script.js"></script>
 </body>
 </html>
 
