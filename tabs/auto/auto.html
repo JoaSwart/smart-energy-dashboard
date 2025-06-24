@@ -43,7 +43,28 @@
       <a href="/tabs/apparaatbeheer/apparaatbeheer.html"><span class="material-icons">devices</span>Apparaatbeheer</a>
     </nav>
   </div>
+  <div class="auto-content">
+    <p>Luchtdruk binnen</p>
+    <div class="chart-container">
+  <div class="chart-header">
+    <select id="tijd-filter" class="filter-btn">
+      <option value="vandaag">Vandaag</option>
+      <option value="gisteren">Gisteren</option>
+      <option value="laatste7d">Laatste 7 dagen</option>
+      <option value="laatste30d">Laatste 30 dagen</option>
+    </select>
+  </div>
+
+  <canvas id="waterstofverbruikAuto"></canvas>
+</div>
+
+      <canvas id="waterstofverbruikAuto"></canvas>
+      
+    </div>
+  </div>
   <script src="../dashboard/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="./waterstofverbruik.js"></script>
 </body>
 </html>
 

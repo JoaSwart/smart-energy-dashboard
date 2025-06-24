@@ -55,8 +55,8 @@ fetch('../../data/huisverbruik.csv')
         }]
       },
       options: {
-        responsive: false,
-        maintainAspectRatio: false,
+        responsive: true,
+        maintainAspectRatio: true,
         plugins: {
           legend: { display: true },
         },

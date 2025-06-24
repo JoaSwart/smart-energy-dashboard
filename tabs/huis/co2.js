@@ -7,10 +7,10 @@ function updateCo2Chart(filter) {
   let labels = allCo2Labels;
   let values = allCo2Values;
   if (filter === '3h') {
-    labels = allCo2Labels.slice(-12);
+    labels = allCo2Labels.slice(-12); //pakt de laatste 12 metingen (3h)
     values = allCo2Values.slice(-12);
   } else if (filter === 'day') {
-    labels = allCo2Labels.slice(-96);
+    labels = allCo2Labels.slice(-96); //pakt de laatste 96 metingen (1 dag)
     values = allCo2Values.slice(-96);
   }
   if (co2Chart) {
@@ -76,13 +76,13 @@ function updateLuchtvochtigheidDonut(filter) {
 
 Promise.all([
   fetch('../../data/co2-binnen.csv').then(r => r.text()),
-  fetch('../../data/huisverbruik.csv').then(r => r.text()),
+  fetch('../../data/huisverbruik.csv').then(r => r.text()), //haalt de tijd data uit huisverbruik
   fetch('../../data/luchtvochtigheid.csv').then(r => r.text())
 ]).then(([co2Text, tijdText, luchtText]) => {
   // co2- waardes
   const co2Lines = co2Text.trim().split('\n');
   co2Lines.shift(); // verwijder header
-  const co2Values = co2Lines.map(v => parseFloat(v.replace(',', '.')));
+  const co2Values = co2Lines.map(v => parseFloat(v.replace(',', '.'))); //replaced comma met een .
 
   // tijdlabels
   const tijdLines = tijdText.trim().split('\n');
@@ -103,11 +103,10 @@ Promise.all([
   if (canvas) {
     const ctx = canvas.getContext('2d');
     // Linear gradient voor de lijnvulling
-    const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-    gradient.addColorStop(0, '#4A90E2');
-    gradient.addColorStop(0.4, '#B3D4FC');
-    gradient.addColorStop(0.7, '#fff');
-    gradient.addColorStop(1, '#fff');
+   const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+gradient.addColorStop(0, 'rgba(74, 144, 226, 0.6)');   // donkerblauw boven
+gradient.addColorStop(0.85, 'rgba(165, 196, 230, 0.4)'); // lichte overgang laag
+gradient.addColorStop(1, 'rgba(165, 196, 230, 0)');     // transparant onder
     co2Chart = new Chart(ctx, {
       type: 'line',
       data: {
@@ -124,8 +123,8 @@ Promise.all([
         }]
       },
       options: {
-        responsive: false,
-        maintainAspectRatio: false,
+        responsive: true,
+        maintainAspectRatio: true,
         plugins: {
           legend: { display: true },
         },

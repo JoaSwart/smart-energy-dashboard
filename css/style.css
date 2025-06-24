@@ -217,13 +217,36 @@ html, body {
 
 /* grafiek container  */
 .chart-container {
+  position: relative;
   width: 100%;
-  max-width: 500px;
-  height: 400px;
+  max-width: 700px;
+  aspect-ratio: 16/9;
+  margin: 0 auto;
   background-color: #ffffff;
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  height: auto;
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.chart-container canvas {
+  position: relative;
+  width: 100% !important;
+  height: 100% !important;
+  left: 0;
+  top: 0;
+  display: block;
+  margin: 0 auto;
+  background: #f8fafc;
+  border-radius: 15px;
+  box-shadow: 0 2px 12px rgba(56,161,105,0.07);
+  padding: 10px;
+  z-index: 1;
 }
 
 /* apparaatbeheer */
@@ -562,7 +585,6 @@ input:checked + .slider:before {
 .huis-subtabs-nav {
   display: flex;
   gap: 0.5rem;
-  margin-bottom: 2rem;
   justify-content: center;
   width: 100%;
 }
@@ -741,8 +763,101 @@ input:checked + .slider:before {
   margin: 0 auto;
 }
 
-#co2Binnen, #huisVerbruik {
+#co2Binnen, #huisVerbruik #waterstofverbruikAuto{
   background: #fff;
   border-radius: 16px;
 }
+
+/* responsieve grafieken */
+.huis-subtab-content {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.huis-subtab-content canvas {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 70vh;
+  aspect-ratio: 16/9;
+}
+
+.co2-luchtvochtigheid-flex {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.co2-luchtvochtigheid-flex canvas#co2Binnen {
+  flex: 1;
+  min-width: 300px;
+}
+
+.luchtvochtigheid-donut-container {
+  flex: 0 0 auto;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#luchtvochtigheidDonut {
+  width: 100% !important;
+  height: 100% !important;
+  aspect-ratio: 1/1;
+}
+
+#luchtdruk {
+  background: #fff !important;
+  border-radius: 16px;
+}
+
+#filter-waterstofverbruik {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(56,161,105,0.07);
+  padding: 16px 20px 10px 20px;
+  margin-bottom: 18px;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.chart-container {
+  position: relative;
+  padding-top: 2rem; /* ruimte bovenin voor de dropdown */
+}
+
+.chart-header {
+  position: absolute;
+  top: 10;
+  right: 0;
+  z-index: 10;
+}
+
+.filter-btn {
+  padding: 6px 12px;
+  font-size: 14px;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  background-color: #fff;
+  cursor: pointer;
+  transform: none;
+  min-width: 160px;
+  max-width: 160px;
+  transition: none;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.chart-header select:active {
+  transform: none;
+}
+
+#tijd-filter.filter-btn:focus,
+#tijd-filter.filter-btn:active {
+  width: 180px;
+  min-width: 160px;
+  max-width: 160px;
+}
+
 

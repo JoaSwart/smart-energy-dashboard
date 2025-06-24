@@ -19,4 +19,14 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+});
+
+// Resize handler voor responsieve grafieken
+window.addEventListener('resize', function() {
+  const charts = document.querySelectorAll('canvas');
+  charts.forEach(canvas => {
+    if (canvas.chart) {
+      canvas.chart.resize();
+    }
+  });
 }); 

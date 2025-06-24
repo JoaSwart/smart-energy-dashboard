@@ -63,7 +63,9 @@
           <button class="filter-btn" data-filter="day">Dag</button>
           <button class="filter-btn" data-filter="week">Week</button>
         </div>
-        <canvas id="huisVerbruik" width="800" height="300"></canvas>
+        <div class="chart-container">
+          <canvas id="huisVerbruik"></canvas>
+        </div>
       </div>
 
       <!--co2 concentratie binnen-->
@@ -75,13 +77,13 @@
           <button class="filter-btn" data-filter="week">Week</button>
         </div>
         <div class="co2-luchtvochtigheid-flex">
-          <canvas id="co2Binnen" width="600" height="350"></canvas>
+          <canvas id="co2Binnen"></canvas>
 
           <!--luchtvochtigheid donut-->
             <div class="luchtvochtigheid-donut-container">
               <div class="luchtvochtigheid-donut-title">Gemiddelde luchtvochtigheid</div>
               <div class="luchtvochtigheid-donut-wrapper">
-                <canvas id="luchtvochtigheidDonut" width="180" height="180"></canvas>
+                <canvas id="luchtvochtigheidDonut"></canvas>
                 <div id="luchtvochtigheidDonutValue" class="luchtvochtigheid-donut-value"></div>
               </div>
               <div class="luchtvochtigheid-donut-uitleg">Gemiddelde over geselecteerde periode</div>
@@ -90,18 +92,25 @@
       </div>
       <div class="huis-subtab-content" id="subtab-luchtdruk">
         <p>Luchtdruk binnen</p>
-        <canvas id="luchtdruk" width="600" height="300"></canvas>
+        <div class="filter-buttons" id="filter-co2">
+          <button class="filter-btn active" data-filter="3h">Laatste 3 uur</button>
+          <button class="filter-btn" data-filter="day">Dag</button>
+          <button class="filter-btn" data-filter="week">Week</button>
+        </div>
+        <canvas id="luchtdruk"></canvas>
       </div>
       <div class="huis-subtab-content" id="subtab-waterstof">
         <p>Waterstofopslag woning</p>
-        <canvas id="waterstofopslag" width="600" height="300"></canvas>
+        <canvas id="waterstofopslag"></canvas>
       </div>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
   <script src="./huisverbruik.js"></script>
   <script src="./co2.js"></script>
   <script src="./huis-tabs.js"></script>
+  <script src="./luchtdruk.js"></script>
    <script src="../dashboard/script.js"></script>
 </body>
 </html>
