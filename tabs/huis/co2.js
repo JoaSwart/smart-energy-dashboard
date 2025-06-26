@@ -27,15 +27,15 @@ function updateLuchtvochtigheidDonut(filter) {
   } else if (filter === 'day') {
     values = allLuchtvochtigheid.slice(-96);
   }
-  // Bereken gemiddelde
+  //bereken gemiddelde
   const avg = values.length ? values.reduce((a, b) => a + b, 0) / values.length : 0;
   const donutData = [avg, 100 - avg];
-  // Toon waarde in het midden
+  //toon waarde in het midden
   const valueDiv = document.getElementById('luchtvochtigheidDonutValue');
   if (valueDiv) {
     valueDiv.textContent = Math.round(avg) + '%';
   }
-  // Debug: check of canvas bestaat
+  //debug: check of canvas bestaat
   const canvas = document.getElementById('luchtvochtigheidDonut');
   console.log('updateLuchtvochtigheidDonut aangeroepen, canvas:', canvas);
   if (!canvas) {

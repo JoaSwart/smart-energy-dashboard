@@ -3,65 +3,88 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smart energy dashboard</title>
+  <title>Smart Energy Dashboard - Auto</title>
   <link rel="stylesheet" href="/css/style.css">
-
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-  <!-- header bovenin-->
+  <!--header -->
   <div class="navbar">
     <div class="navbar-left">
       <span class="brand">Smart Energy Insights</span>
     </div>
-    <!--titel van de huidige pagina-->
     <span class="page-active">Auto</span>
     <div class="navbar-right">
       <span class="material-icons">notifications</span>
       <div class="settings-menu-container">
         <span class="material-icons" id="settings-menu-btn">menu</span>
         <div class="settings-menu" id="settings-menu">
-            <a href="#"><span class="material-icons">person</span>Account</a>
-            <a href="#"><span class="material-icons">email</span>Email</a>
-            <a href="#"><span class="material-icons">language</span>Language</a>
-            <a href="#"><span class="material-icons">logout</span>Log out</a>
+          <a href="#"><span class="material-icons">person</span>Account</a>
+          <a href="#"><span class="material-icons">email</span>Email</a>
+          <a href="#"><span class="material-icons">language</span>Language</a>
+          <a href="#"><span class="material-icons">logout</span>Log out</a>
         </div>
       </div>
     </div>
   </div>
-  <!--div voor de sidebar aan de zijkant-->
+
+  <!--sidebar -->
   <div class="sidebar">
     <div class="profile">
       <span class="material-icons">account_circle</span>
     </div>
-    <!--de navigatie van de tabs-->
     <nav>
-       <a href="/tabs/dashboard/index.html"><span class="material-icons">dashboard</span>Dashboard</a>
+      <a href="/tabs/dashboard/index.html"><span class="material-icons">dashboard</span>Dashboard</a>
       <a href="/tabs/huis/huis.html"><span class="material-icons">home</span>Huis</a>
       <a href="/tabs/auto/auto.html" class="active"><span class="material-icons">directions_car</span>Auto</a>
       <a href="/tabs/zonnepanelen/zonnepanelen.html"><span class="material-icons">wb_sunny</span>Zonnepanelen</a>
       <a href="/tabs/apparaatbeheer/apparaatbeheer.html"><span class="material-icons">devices</span>Apparaatbeheer</a>
     </nav>
   </div>
-  <div class="auto-content">
-    <p>Luchtdruk binnen</p>
-    <div class="chart-container">
-  <div class="chart-header">
-    <select id="tijd-filter" class="filter-btn">
-      <option value="vandaag">Vandaag</option>
-      <option value="gisteren">Gisteren</option>
-      <option value="laatste7d">Laatste 7 dagen</option>
-      <option value="laatste30d">Laatste 30 dagen</option>
-    </select>
-  </div>
 
-      <canvas id="waterstofverbruikAuto"></canvas>
-      
+  <!--main content -->
+  <main class="content">
+    <!--filter buttons -->
+    <div class="filter-buttons">
+      <button class="filter-btn" data-filter="vandaag">Vandaag</button>
+      <button class="filter-btn active" data-filter="gisteren">Gisteren</button>
+      <button class="filter-btn" data-filter="laatste7d">7 Dagen</button>
+      <button class="filter-btn" data-filter="laatste30d">30 Dagen</button>
     </div>
-  </div>
-  <script src="../dashboard/script.js"></script>
+    <div class="auto-content-grid">
+      <div class="main-chart-container">
+        <div class="chart-header">
+          <h3 id="main-chart-title">Waterstofverbruik Auto</h3>
+        </div>
+        <canvas id="waterstofverbruikAuto"></canvas>
+      </div>
+
+      <!--donut grafieken -->
+      <div class="donut-charts-sidebar">
+        <!--accu niveau donut -->
+        <div class="donut-chart-card">
+          <h3 class="donut-title">Accuniveau Auto</h3>
+          <div class="donut-wrapper">
+            <canvas id="accuNiveauDonut"></canvas>
+            <div id="accuValue" class="donut-value">--%</div>
+          </div>
+        </div>
+        
+        <!--waterstof opslag donut -->
+        <div class="donut-chart-card">
+          <h3 class="donut-title">Waterstofopslag Auto</h3>
+          <div class="donut-wrapper">
+            <canvas id="waterstofOpslagDonut"></canvas>
+            <div id="waterstofOpslagValue" class="donut-value">--%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="./waterstofverbruik.js"></script>
+  <script src="./accuniveau.js"></script>
+  <script src="./auto.js"></script>
 </body>
 </html>
-

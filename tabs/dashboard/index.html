@@ -1,21 +1,20 @@
-
 <!DOCTYPE html>
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smart energy dashboard</title>
+  <title>Smart Energy Dashboard</title>
   <link rel="stylesheet" href="/css/style.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <!-- header bovenin-->
+  <!--header-->
   <div class="navbar">
     <div class="navbar-left">
       <span class="brand">Smart Energy Insights</span>
     </div>
-    <!--titel van de huidige pagina-->
-    <span class="page-active">Home</span>
+    <span class="page-active">Dashboard</span>
     <div class="navbar-right">
       <span class="material-icons">notifications</span>
       <div class="settings-menu-container">
@@ -29,12 +28,11 @@
       </div>
     </div>
   </div>
-  <!--div voor de sidebar aan de zijkant-->
+
   <div class="sidebar">
     <div class="profile">
       <span class="material-icons">account_circle</span>
     </div>
-     <!--de navigatie van de tabs-->
     <nav>
       <a href="/tabs/dashboard/index.html" class="active"><span class="material-icons">dashboard</span>Dashboard</a>
       <a href="/tabs/huis/huis.html"><span class="material-icons">home</span>Huis</a>
@@ -42,6 +40,61 @@
       <a href="/tabs/zonnepanelen/zonnepanelen.html"><span class="material-icons">wb_sunny</span>Zonnepanelen</a>
       <a href="/tabs/apparaatbeheer/apparaatbeheer.html"><span class="material-icons">devices</span>Apparaatbeheer</a>
     </nav>
-    <script src="../dashboard/script.js"></script>
+  </div>
+
+  <!-- dashboard content-->
+  <div class="dashboard-container">
+    <h1 class="dashboard-title">Overzicht van woning, auto en zonne-energie afgelopen 24h</h1>
+
+    <div class="mini-chart-grid">
+      <!--zonnepaneelopbrengst -->
+      <div class="mini-chart-card">
+        <div class="mini-chart-header">
+          <span class="mini-chart-title">Zonnepaneelopbrengst</span>
+          <span class="mini-chart-value" id="solar-value">-- W</span>
+        </div>
+        <div class="mini-chart-canvas-wrapper">
+          <canvas id="solar-chart"></canvas>
+        </div>
+      </div>
+
+      <!--verbruik woning -->
+      <div class="mini-chart-card">
+        <div class="mini-chart-header">
+          <span class="mini-chart-title">Verbruik Woning</span>
+          <span class="mini-chart-value" id="house-value">-- kW</span>
+        </div>
+        <div class="mini-chart-canvas-wrapper">
+          <canvas id="house-chart"></canvas>
+        </div>
+      </div>
+
+      <!--accuniveau auto -->
+      <div class="mini-chart-card">
+        <div class="mini-chart-header">
+          <span class="mini-chart-title">Accuniveau Auto</span>
+          <span class="mini-chart-value" id="car-value">-- %</span>
+        </div>
+        <div class="mini-chart-canvas-wrapper">
+          <canvas id="car-chart"></canvas>
+        </div>
+      </div>
+
+      <!--waterstofopslag -->
+      <div class="mini-chart-card">
+        <div class="mini-chart-header">
+          <span class="mini-chart-title">Waterstofopslag Woning</span>
+          <span class="mini-chart-value" id="hydrogen-value">-- %</span>
+        </div>
+        <div class="mini-chart-canvas-wrapper">
+          <canvas id="hydrogen-chart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="../../js/common.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

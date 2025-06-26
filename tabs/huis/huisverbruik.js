@@ -1,26 +1,29 @@
-console.log("script.js werkt");
+console.log("huisverbruik.js werkt");
 
 let allLabels = [];
 let allValues = [];
-let chart = null;
+let huisverbruikChart = null;
 
 function updateHuisverbruikChart(filter) {
-  let labels = allLabels;
-  let values = allValues;
+  let labels, values;
+
+  if (allLabels.length === 0) return;
+
   if (filter === '3h') {
-    // Laatste 12 punten (bij 15 min interval = 3 uur)
-    labels = allLabels.slice(-12);
+    labels = allLabels.slice(-12); //12 kwartieren = 3 uur
     values = allValues.slice(-12);
   } else if (filter === 'day') {
-    // Laatste 96 punten (24 uur bij 15 min interval)
-    labels = allLabels.slice(-96);
+    labels = allLabels.slice(-96); //96 kwartieren = 1 dag
     values = allValues.slice(-96);
-  } // 'week' = alles tonen
+  } else { 
+    labels = allLabels;
+    values = allValues;
+  }
 
-  if (chart) {
-    chart.data.labels = labels;
-    chart.data.datasets[0].data = values;
-    chart.update();
+  if (huisverbruikChart) {
+    huisverbruikChart.data.labels = labels;
+    huisverbruikChart.data.datasets[0].data = values;
+    huisverbruikChart.update();
   }
 }
 
@@ -38,16 +41,17 @@ fetch('../../data/huisverbruik.csv')
         allValues.push(parseFloat(parts[1].trim()));
       }
     });
+
     const ctx = document.getElementById('huisVerbruik').getContext('2d');
-    chart = new Chart(ctx, {
+    huisverbruikChart = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: allLabels,
+        labels: [],
         datasets: [{
           label: 'Huisverbruik (kW)',
-          data: allValues,
+          data: [],
           borderColor: '#38a169',
-          backgroundColor: 'rgba(56, 161, 105, 0.10)',
+          backgroundColor: 'rgba(56, 161, 105, 0.15)',
           borderWidth: 2,
           pointRadius: 0,
           tension: 0.4,
@@ -56,34 +60,23 @@ fetch('../../data/huisverbruik.csv')
       },
       options: {
         responsive: true,
-        maintainAspectRatio: true,
+        maintainAspectRatio: false,
         plugins: {
-          legend: { display: true },
+          legend: { display: false },
         },
         scales: {
-          y: {
-            title: {
-              display: true,
-              text: 'kW'
-            }
+         y: {
+          min: 0.1, // Start op 0.1 in plaats van 0
+          title: { display: true, text: 'kW' }
           },
-          x: {
-            title: {
-              display: true,
-              text: 'Tijd'
-            },
-            ticks: {
-              maxTicksLimit: 12
-            }
-          }
+          x: { title: { display: true, text: 'Tijd' }, ticks: { maxTicksLimit: 12 } }
         }
       }
     });
-    // Standaard: week (alles)
-    updateHuisverbruikChart('week');
-  });
 
-// Filter buttons event listeners
+    updateHuisverbruikChart('3h');
+    document.querySelector('#filter-huisverbruik .filter-btn[data-filter="3h"]').classList.add('active');
+  });
 
 document.addEventListener('DOMContentLoaded', function() {
   const filterBtns = document.querySelectorAll('#filter-huisverbruik .filter-btn');
@@ -94,4 +87,36 @@ document.addEventListener('DOMContentLoaded', function() {
       updateHuisverbruikChart(this.dataset.filter);
     });
   });
+
+  //kosten vandaag grafiek (mock data) 
+  const kostenCanvas = document.getElementById('kostenVandaag');
+  if (kostenCanvas) {
+    const ctx = kostenCanvas.getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Vandaag'], //1 label
+        datasets: [{
+          label: 'Kosten (€)',
+          data: [50.75], //1 datapunt voor de totale kosten
+          backgroundColor: '#a2dfc8',
+          borderColor: '#38a169',
+          borderWidth: 1,
+          borderRadius: 5,
+          maxBarThickness: 60 //zorgt dat de staaf niet te breed wordt
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+        },
+        scales: {
+          y: { beginAtZero: true, title: { display: true, text: '€' } },
+          x: { grid: { display: false } }
+        }
+      }
+    });
+  }
 });
